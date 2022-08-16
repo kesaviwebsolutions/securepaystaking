@@ -1,4 +1,4 @@
-@import url("https://use.typekit.net/vvr3yja.css");
+@import url('https://use.typekit.net/vvr3yja.css');
 
 /*  font-family: josefin-sans, sans-serif;
   font-weight: 700;
@@ -222,7 +222,45 @@ h3.stakingSummary {
   font-weight: 700;
   font-size: 22px;
   color: #333333;
-  padding: 40px 0px;
+  padding: 40px 0px 10px;
+}
+.pairs {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+.single-pairs {
+  text-align: center;
+}
+.summary {
+  font-family: josefin-sans, sans-serif;
+  font-weight: 400;
+  color: #333333;
+  font-size: 20px;
+}
+.values {
+  font-family: josefin-sans, sans-serif;
+  font-weight: 400;
+  color: #333333;
+  font-size: 20px;
+}
+
+/* MY STAKE */
+
+.mystake-content {
+  border: 1px solid;
+  width: 95%;
+  display: block;
+  margin:auto;
+  padding:20px 10px 10px;
+  text-align: center;
+}
+.mystake {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 1280px) {
@@ -254,7 +292,7 @@ h3.stakingSummary {
     font-style: normal;
     margin: 15px 20px;
     text-align: center;
-}
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -276,5 +314,13 @@ h3.stakingSummary {
   .stake {
     padding-left: 0px;
     text-align: center;
+  }
+  .srpay {
+    border: none;
+    width: 100%;
+    margin: 40px 0px;
+    border-radius: 5px;
+    box-shadow: 0 4px 25px rgb(51 51 51 / 15%);
+    background-color: #ffffff;
   }
 }
