@@ -1,0 +1,115 @@
+import React from "react";
+import spay from "../images/spay99.png";
+import meta from "../images/meta.png";
+import connect from "../images/connect.svg";
+
+export default function Navbar() {
+  return (
+    <div>
+      <div className="container">
+        <nav className="navbar navbar-expand-lg bg-transparent">
+          <div className="container-fluid">
+            <a className="navbar-brand" href="/">
+              <img src={spay} alt="" className="navLogo" />
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="nav nav-pills mx-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <a className="nav-link active item mx-3" aria-current="page" href="https://secure-pay.io/index.html" target="_blank">
+                    BACK TO MAIN WEBSITE
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link active item  mx-3" href="/" target="_blank">
+                   STAKE
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link mx-3" href="https://secure-pay.io/index.html#roadmap" target="_blank">
+                    ROADMAP
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link mx-3" href="https://secure-pay.io/index.html#faqs" target="_blank">
+                    FAQS
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link mx-3" href="https://secure-pay.io/index.html#contact" target="_blank">CONTACT</a>
+                </li>
+                <button
+                  type="button"
+                  className="btn mx-3 connect-btton"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  Connect Wallet
+                </button>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        {/* MODAL */}
+
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabIndex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5
+                  className="modal-title ms-auto heading"
+                  id="exampleModalLabel"
+                >
+                  Please Connect Your Wallet
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body">
+                <div className="wallet-images">
+                  <img src={meta} alt="" className="wi" />
+                  <img src={connect} alt="" className="wi" />
+                </div>
+              </div>
+              {/* <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" className="btn btn-primary">
+                Save changes
+              </button>
+            </div> */}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

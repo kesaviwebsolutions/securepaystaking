@@ -1,38 +1,89 @@
-.App {
-  text-align: center;
-}
+@import url("https://use.typekit.net/vvr3yja.css");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* NAVBAR */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+img.navLogo {
+  max-width: 100px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+li.nav-item {
+  font-family: josefin-sans, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+a.nav-link {
+  color: #333333;
+  transition: 0.5s;
+}
+a.nav-link:hover {
+  color: #333333;
+  text-decoration: line-through;
+}
+a.nav-link.active.item {
+  background: none;
+  color: #1accaf;
+  text-decoration: line-through;
+}
+.wallet-images {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+img.wi {
+  max-width: 100px;
+  cursor: pointer;
+}
+.modal-title.heading {
+  font-family: josefin-sans, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+button.connect-btton {
+  border: 1px solid;
+  border-radius: 0px;
+  font-family: josefin-sans, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #333333;
+}
+button.connect-btton:hover {
+  background: #1accaf;
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
-}
+/* STAKING */
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.staking-item-area {
+  margin-top: 50px;
+}
+ul.nav.nav-pills.nav-fill.area {
+  display: block;
+}
+.items {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #333333;
+  width: 90%;
+}
+a.nav-link.active.tab {
+  background: none;
+  color: #1accaf;
+  font-family: josefin-sans, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  border-bottom: 3px solid #1accaf;
+  padding-bottom: 10px;
+  border-radius: 0px;
+  text-decoration: line-through;
+  color: #1accaf;
+}
+a.nav-link.tab {
+  background: none;
+  color: #1accaf;
+  font-family: josefin-sans, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #333333;
+}
+li.nav-item.tabs {
+  text-align: start;
 }
