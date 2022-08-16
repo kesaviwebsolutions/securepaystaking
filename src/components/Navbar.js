@@ -27,33 +27,33 @@ export default function Navbar() {
               className="collapse navbar-collapse"
               id="navbarSupportedContent"
             >
-              <ul className="nav nav-pills mx-auto mb-2 mb-lg-0">
+              <ul className="nav nav-pills pills-area mx-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link active item mx-3" aria-current="page" href="https://secure-pay.io/index.html" target="_blank">
+                  <a className="nav-link item mx-2" aria-current="page" href="https://secure-pay.io/index.html" target="_blank">
                     BACK TO MAIN WEBSITE
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active item  mx-3" href="/" target="_blank">
+                  <a className="nav-link active item  mx-2" href="/" target="_blank">
                    STAKE
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link mx-3" href="https://secure-pay.io/index.html#roadmap" target="_blank">
+                  <a className="nav-link mx-2" href="https://secure-pay.io/index.html#roadmap" target="_blank">
                     ROADMAP
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link mx-3" href="https://secure-pay.io/index.html#faqs" target="_blank">
+                  <a className="nav-link mx-2" href="https://secure-pay.io/index.html#faqs" target="_blank">
                     FAQS
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link mx-3" href="https://secure-pay.io/index.html#contact" target="_blank">CONTACT</a>
+                  <a className="nav-link mx-2" href="https://secure-pay.io/index.html#contact" target="_blank">CONTACT</a>
                 </li>
                 <button
                   type="button"
-                  className="btn mx-3 connect-btton"
+                  className="btn mx-2 connect-btton"
                   data-bs-toggle="modal"
                   data-bs-target="#exampleModal"
                 >
