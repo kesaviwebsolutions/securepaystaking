@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import spay from '../images/spay99.png'
-import meta from '../images/meta.png'
-import connect from '../images/connect.svg'
+import React, { useState, useEffect } from "react";
+import spay from "../images/spay99.png";
+import meta from "../images/meta.png";
+import connect from "../images/connect.svg";
 
 export default function Navbar({
   WalletC,
@@ -10,15 +10,17 @@ export default function Navbar({
   account,
   Dissconnect,
 }) {
-  const [active, setActive] = useState(true)
-  const [active2, setActive2] = useState(false)
-  const [active3, setActive3] = useState(false)
+  const [active, setActive] = useState(true);
+  const [active2, setActive2] = useState(false);
+  const [active3, setActive3] = useState(false);
+  const [active4, setActive4] = useState(false);
+  const [active5, setActive5] = useState(false);
 
   const sliceadd = (address) => {
-    const first = address.slice(0, 4)
-    const second = address.slice(38)
-    return first + '...' + second
-  }
+    const first = address.slice(0, 4);
+    const second = address.slice(38);
+    return first + "..." + second;
+  };
   return (
     <div>
       <div className="container">
@@ -46,13 +48,15 @@ export default function Navbar({
                 <li
                   className="nav-item"
                   onClick={() => {
-                    setActive(false)
-                    setActive2(true)
-                    setActive3(false)
+                    setActive(false);
+                    setActive2(true);
+                    setActive3(false);
+                    setActive4(false);
+                    setActive5(false);
                   }}
                 >
                   <a
-                    className={`nav-link ${active2 ? 'active' : ''} item mx-2`}
+                    className={`nav-link ${active2 ? "active" : ""} item mx-2`}
                     aria-current="page"
                     href="https://secure-pay.io/index.html"
                     target="_blank"
@@ -63,14 +67,16 @@ export default function Navbar({
                 <li
                   className="nav-item"
                   onClick={() => {
-                    setActive(true)
-                    setActive2(false)
+                    setActive(true);
+                    setActive2(false);
+                    setActive3(false);
+                    setActive4(false);
+                    setActive5(false);
                   }}
                 >
                   <a
-                    className={`nav-link ${active ? 'active item' : ''} mx-2`}
+                    className={`nav-link ${active ? "active item" : ""} mx-2`}
                     href="/"
-                    target="_blank"
                   >
                     STAKING
                   </a>
@@ -78,34 +84,51 @@ export default function Navbar({
                 <li
                   className="nav-item"
                   onClick={() => {
-                    setActive3(true)
-                    setActive(false)
-                    setActive2(false)
-                    setActive3(false)
+                    setActive(false);
+                    setActive2(false);
+                    setActive3(true);
+                    setActive4(false);
+                    setActive5(false);
                   }}
                 >
                   <a
-                    className={`nav-link ${
-                      active3 ? 'active item' : ''
-                    } item mx-2`}
+                    className={`nav-link ${active3 ? "active item" : ""} mx-2`}
                     href="https://secure-pay.io/index.html#roadmap"
                     target="_blank"
                   >
                     ROADMAP
                   </a>
                 </li>
-                <li className="nav-item">
+                <li
+                  className="nav-item"
+                  onClick={() => {
+                    setActive(false);
+                    setActive2(false);
+                    setActive3(false);
+                    setActive4(true);
+                    setActive5(false);
+                  }}
+                >
                   <a
-                    className="nav-link item mx-2"
+                    className={`nav-link ${active4 ? "active item" : ""} mx-2`}
                     href="https://secure-pay.io/index.html#faqs"
                     target="_blank"
                   >
                     FAQS
                   </a>
                 </li>
-                <li className="nav-item">
+                <li
+                  className="nav-item"
+                  onClick={() => {
+                    setActive(false);
+                    setActive2(false);
+                    setActive3(false);
+                    setActive4(false);
+                    setActive5(true);
+                  }}
+                >
                   <a
-                    className="nav-link item mx-2"
+                    className={`nav-link ${active5 ? "active item" : ""} mx-2`}
                     href="https://secure-pay.io/index.html#contact"
                     target="_blank"
                   >
@@ -207,5 +230,5 @@ export default function Navbar({
         </div>
       </div>
     </div>
-  )
+  );
 }

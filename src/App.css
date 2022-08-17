@@ -1,4 +1,4 @@
-@import url('https://use.typekit.net/vvr3yja.css');
+@import url("https://use.typekit.net/vvr3yja.css");
 
 /*  font-family: josefin-sans, sans-serif;
   font-weight: 700;
@@ -63,7 +63,6 @@ li.disconnect {
   font-weight: 500;
   font-size: 20px;
   cursor: pointer;
-
 }
 
 /* STAKING */
@@ -253,7 +252,44 @@ h3.stakingSummary {
   color: #333333;
   font-size: 20px;
 }
+.summary-content {
+  display: flex;
+  align-items: center;
+}
+.ssc {
+  padding-left: 42px;
+  font-family: josefin-sans, sans-serif;
+}
+.ssc2 {
+  font-family: josefin-sans, sans-serif;
+  padding-left: 32px;
+}
+.ssc3 {
+  font-family: josefin-sans, sans-serif;
+  padding-left: 82px;
+}
+.ssc4 {
+  font-family: josefin-sans, sans-serif;
+  padding-left: 88px;
+}
+.ssc5 {
+  font-family: josefin-sans, sans-serif;
+  padding-left: 122px;
+}
+p.sc {
+  font-family: josefin-sans, sans-serif;
+  margin-left: 7px;
+}
 
+button.stake-btton {
+  font-family: josefin-sans, sans-serif;
+  font-weight: 400;
+  width: 53%;
+  background-color: #3898ec;
+  border: none;
+  color: #fff;
+  padding: 10px 10px;
+}
 /* MY STAKE */
 
 .mystake-content {
@@ -261,11 +297,10 @@ h3.stakingSummary {
   border-radius: 5px;
   width: 95%;
   display: block;
-  margin:auto;
-  padding:20px 10px 10px;
+  margin: auto;
+  padding: 20px 10px 10px;
   text-align: center;
   background-color: #3898ec;
-  
 }
 tr.head {
   font-weight: 500;
@@ -312,6 +347,15 @@ tr.body {
     font-style: normal;
     margin: 15px 20px;
     text-align: center;
+  }
+  .stake {
+    text-align: center;
+    padding-left: 0px;
+  }
+  .summary-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
