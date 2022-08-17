@@ -332,6 +332,34 @@ tr.body {
   }
 }
 
+a.whitepaper {
+  text-decoration: none;
+  color: #fff;
+  background-color: #1accaf;
+  padding: 20px 20px;
+  font-family: josefin-sans, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  display: block;
+  margin: 70px auto 40px;
+  max-width: 300px;
+  transition: 0.5s;
+}
+a.whitepaper:hover {
+  color: #fff;
+  box-shadow: 0px 5px 20px 0px #1accaf;
+}
+img.footerImg {
+  width: 60px;
+}
+a.email{
+  text-decoration: none;
+  color: #333333;
+  margin-left: 10px;
+  margin-bottom: 20px
+}
+
 @media screen and (max-width: 912px) {
   .statement {
     width: 54%;
@@ -349,13 +377,16 @@ tr.body {
     text-align: center;
   }
   .stake {
-    text-align: center;
-    padding-left: 0px;
+    padding-left: 100px;
   }
-  .summary-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  button.stake-btton {
+    font-family: josefin-sans, sans-serif;
+    font-weight: 400;
+    width: 100%;
+    background-color: #3898ec;
+    border: none;
+    color: #fff;
+    padding: 10px 10px;
   }
 }
 
@@ -376,8 +407,7 @@ tr.body {
     right: 45px;
   }
   .stake {
-    padding-left: 0px;
-    text-align: center;
+    padding-left: 10px;
   }
   .srpay {
     border: none;
@@ -386,5 +416,15 @@ tr.body {
     border-radius: 5px;
     box-shadow: 0 4px 25px rgb(51 51 51 / 15%);
     background-color: #ffffff;
+  }
+
+  button.stake-btton {
+    font-family: josefin-sans, sans-serif;
+    font-weight: 400;
+    width: 100%;
+    background-color: #3898ec;
+    border: none;
+    color: #fff;
+    padding: 10px 10px;
   }
 }

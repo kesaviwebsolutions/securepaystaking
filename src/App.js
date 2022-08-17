@@ -1,14 +1,20 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Home from "./components/Pages/Home";
 import MyStake from "./components/Pages/MyStake";
 import Staking from "./components/Staking";
-import { WalletConnect, MetaMasklogin, DissconnectWallet, getUserAddress, GetChainId } from "./components/Web3/Wallets";
+import {
+  WalletConnect,
+  MetaMasklogin,
+  DissconnectWallet,
+  getUserAddress,
+  GetChainId,
+} from "./components/Web3/Wallets";
 
 function App() {
-  
   const [user, setUser] = useState();
   const [account, setAccount] = useState("");
 
@@ -41,7 +47,7 @@ function App() {
   const Metamask = async () => {
     await MetaMasklogin();
     const add = await getUserAddress();
-    window.localStorage.setItem('wallet','wallet')
+    window.localStorage.setItem("wallet", "wallet");
     setAccount(add);
     setUser(add);
   };
@@ -49,7 +55,7 @@ function App() {
     await DissconnectWallet();
     setAccount(undefined);
     setUser(undefined);
-    window.localStorage.removeItem('wallet')
+    window.localStorage.removeItem("wallet");
   };
 
   try {
@@ -64,16 +70,22 @@ function App() {
     });
   } catch (error) {}
 
-
   return (
     <div className="App">
       <Router>
-        <Navbar WalletC={WalletC} Metamask={Metamask} user={user} account={account} Dissconnect={Dissconnect}/>
+        <Navbar
+          WalletC={WalletC}
+          Metamask={Metamask}
+          user={user}
+          account={account}
+          Dissconnect={Dissconnect}
+        />
         <Staking />
         <Routes>
-          <Route exact path="/" element={<Home user={user}/>} />
-          <Route exact path="/my-stake" element={<MyStake user={user}/>} />
+          <Route exact path="/" element={<Home user={user} />} />
+          <Route exact path="/my-stake" element={<MyStake user={user} />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
