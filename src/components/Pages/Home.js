@@ -1,10 +1,10 @@
 import React from "react";
 import StakeSRPAY from "./StakeSRPAY";
 
-export default function Home() {
+export default function Home({user}) {
   return (
     <div>
-      <StakeSRPAY/>
+      <StakeSRPAY user={user}/>
     </div>
   );
 }

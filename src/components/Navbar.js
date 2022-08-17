@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import spay from "../images/spay99.png";
 import meta from "../images/meta.png";
 import connect from "../images/connect.svg";
 
-export default function Navbar() {
+export default function Navbar({WalletC,Metamask,user,account,Dissconnect}) {
   const [active, setActive] = useState(false);
+  
+  const sliceadd = (address) => {
+    const first = address.slice(0, 4)
+    const second = address.slice(38)
+    return first + '...' + second
+  }
   return (
     <div>
       <div className="container">
@@ -75,14 +81,20 @@ export default function Navbar() {
                     CONTACT
                   </a>
                 </li>
-                <button
+                {user ? <button
+                  type="button"
+                  className="btn mx-2 connect-btton"
+                  data-bs-target="#exampleModal"
+                >
+                  {sliceadd(user)}
+                </button> : <button
                   type="button"
                   className="btn mx-2 connect-btton"
                   data-bs-toggle="modal"
                   data-bs-target="#exampleModal"
                 >
                   Connect Wallet
-                </button>
+                </button>}
               </ul>
             </div>
           </div>
@@ -114,8 +126,8 @@ export default function Navbar() {
               </div>
               <div className="modal-body">
                 <div className="wallet-images">
-                  <img src={meta} alt="" className="wi" />
-                  <img src={connect} alt="" className="wi" />
+                  <img src={meta} alt="" className="wi" onClick={()=>Metamask()}/>
+                  <img src={connect} alt="" className="wi" onClick={()=>WalletC()}/>
                 </div>
               </div>
               {/* <div className="modal-footer">

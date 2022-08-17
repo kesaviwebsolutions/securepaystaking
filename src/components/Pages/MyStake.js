@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function MyStake() {
+export default function MyStake({user}) {
   return (
     <div>
       <div className="container">
