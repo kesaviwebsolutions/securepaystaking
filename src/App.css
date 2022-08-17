@@ -135,13 +135,7 @@ li.nav-item.tabs {
 .card.card-section.active {
   border: 2px solid #3cc05d;
 }
-.card.card-section:hover {
-  border: 2px solid #3cc05d;
-}
-.card.card-section.active:hover {
-  border: 2px solid #3cc05d;
-}
-.checkIcon {
+#checkIcon {
   position: absolute;
   right: 0;
 }

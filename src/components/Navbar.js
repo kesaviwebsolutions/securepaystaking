@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import spay from "../images/spay99.png";
 import meta from "../images/meta.png";
 import connect from "../images/connect.svg";
 
 export default function Navbar() {
+  const [active, setActive] = useState(false);
   return (
     <div>
       <div className="container">
@@ -28,28 +29,51 @@ export default function Navbar() {
               id="navbarSupportedContent"
             >
               <ul className="nav nav-pills pills-area mx-auto mb-2 mb-lg-0">
-                <li className="nav-item">
-                  <a className="nav-link item mx-2" aria-current="page" href="https://secure-pay.io/index.html" target="_blank">
+                <li className="nav-item" onClick={() => setActive(true)}>
+                  <a
+                    className={`nav-link ${active ? "active item" : ""} mx-2`}
+                    aria-current="page"
+                    href="https://secure-pay.io/index.html"
+                    target="_blank"
+                  >
                     BACK TO MAIN WEBSITE
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active item  mx-2" href="/" target="_blank">
-                   STAKE
+                  <a
+                    className={`nav-link ${active ? "active item" : ""} mx-2`}
+                    href="/"
+                    target="_blank"
+                  >
+                    STAKE
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link mx-2" href="https://secure-pay.io/index.html#roadmap" target="_blank">
+                  <a
+                    className={`nav-link ${active ? "active item" : ""} mx-2`}
+                    href="https://secure-pay.io/index.html#roadmap"
+                    target="_blank"
+                  >
                     ROADMAP
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link mx-2" href="https://secure-pay.io/index.html#faqs" target="_blank">
+                  <a
+                   className={`nav-link ${active ? "active item" : ""} mx-2`}
+                    href="https://secure-pay.io/index.html#faqs"
+                    target="_blank"
+                  >
                     FAQS
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link mx-2" href="https://secure-pay.io/index.html#contact" target="_blank">CONTACT</a>
+                  <a
+                   className={`nav-link ${active ? "active item" : ""} mx-2`}
+                    href="https://secure-pay.io/index.html#contact"
+                    target="_blank"
+                  >
+                    CONTACT
+                  </a>
                 </li>
                 <button
                   type="button"
