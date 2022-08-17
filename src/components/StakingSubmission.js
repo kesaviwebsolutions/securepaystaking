@@ -48,7 +48,7 @@ export default function StakingSubmission() {
                   setcheckBox(true)
                 }}
               >
-                 <ImCheckboxChecked size={32} color="#3cc05d" id={`${active && checkbox ? 'checkIcon' : ""}`}/>
+                 <ImCheckboxChecked size={32} color="#3cc05d" id="checkIcon"/>
                 <div className="card-body ss-text">
                   <h5 className="card-title styling">180 Days</h5>
                   80% APY

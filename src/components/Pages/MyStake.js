@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function MyStake({user}) {
+export default function MyStake({ user }) {
   return (
     <div>
       <div className="container">
@@ -28,13 +28,26 @@ export default function MyStake({user}) {
             </div>
           </div>
           <div className="mystake-content">
-            <div className="mystake">
-              <p>Serial</p>
-              <p>Staking Date</p>
-              <p>Token Amount</p>
-              <p>Staking End</p>
-              <p>Action</p>
-            </div>
+            <table class="table">
+              <thead>
+                <tr className="head">
+                  <th scope="col">Serial</th>
+                  <th scope="col">Staking Date</th>
+                  <th scope="col">Token Amount</th>
+                  <th scope="col">Staking End</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+               <tr className='body'>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                  <td>@mdo</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

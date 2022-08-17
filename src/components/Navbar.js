@@ -1,11 +1,19 @@
-import React, { useState, useEffect } from "react";
-import spay from "../images/spay99.png";
-import meta from "../images/meta.png";
-import connect from "../images/connect.svg";
+import React, { useState, useEffect } from 'react'
+import spay from '../images/spay99.png'
+import meta from '../images/meta.png'
+import connect from '../images/connect.svg'
 
-export default function Navbar({WalletC,Metamask,user,account,Dissconnect}) {
-  const [active, setActive] = useState(false);
-  
+export default function Navbar({
+  WalletC,
+  Metamask,
+  user,
+  account,
+  Dissconnect,
+}) {
+  const [active, setActive] = useState(true)
+  const [active2, setActive2] = useState(false)
+  const [active3, setActive3] = useState(false)
+
   const sliceadd = (address) => {
     const first = address.slice(0, 4)
     const second = address.slice(38)
@@ -35,9 +43,16 @@ export default function Navbar({WalletC,Metamask,user,account,Dissconnect}) {
               id="navbarSupportedContent"
             >
               <ul className="nav nav-pills pills-area mx-auto mb-2 mb-lg-0">
-                <li className="nav-item" onClick={() => setActive(true)}>
+                <li
+                  className="nav-item"
+                  onClick={() => {
+                    setActive(false)
+                    setActive2(true)
+                    setActive3(false)
+                  }}
+                >
                   <a
-                    className={`nav-link ${active ? "active item" : ""} mx-2`}
+                    className={`nav-link ${active2 ? 'active' : ''} item mx-2`}
                     aria-current="page"
                     href="https://secure-pay.io/index.html"
                     target="_blank"
@@ -45,18 +60,34 @@ export default function Navbar({WalletC,Metamask,user,account,Dissconnect}) {
                     BACK TO MAIN WEBSITE
                   </a>
                 </li>
-                <li className="nav-item">
+                <li
+                  className="nav-item"
+                  onClick={() => {
+                    setActive(true)
+                    setActive2(false)
+                  }}
+                >
                   <a
-                    className={`nav-link ${active ? "active item" : ""} mx-2`}
+                    className={`nav-link ${active ? 'active item' : ''} mx-2`}
                     href="/"
                     target="_blank"
                   >
-                    STAKE
+                    STAKING
                   </a>
                 </li>
-                <li className="nav-item">
+                <li
+                  className="nav-item"
+                  onClick={() => {
+                    setActive3(true)
+                    setActive(false)
+                    setActive2(false)
+                    setActive3(false)
+                  }}
+                >
                   <a
-                    className={`nav-link ${active ? "active item" : ""} mx-2`}
+                    className={`nav-link ${
+                      active3 ? 'active item' : ''
+                    } item mx-2`}
                     href="https://secure-pay.io/index.html#roadmap"
                     target="_blank"
                   >
@@ -65,7 +96,7 @@ export default function Navbar({WalletC,Metamask,user,account,Dissconnect}) {
                 </li>
                 <li className="nav-item">
                   <a
-                   className={`nav-link ${active ? "active item" : ""} mx-2`}
+                    className="nav-link item mx-2"
                     href="https://secure-pay.io/index.html#faqs"
                     target="_blank"
                   >
@@ -74,27 +105,46 @@ export default function Navbar({WalletC,Metamask,user,account,Dissconnect}) {
                 </li>
                 <li className="nav-item">
                   <a
-                   className={`nav-link ${active ? "active item" : ""} mx-2`}
+                    className="nav-link item mx-2"
                     href="https://secure-pay.io/index.html#contact"
                     target="_blank"
                   >
                     CONTACT
                   </a>
                 </li>
-                {user ? <button
-                  type="button"
-                  className="btn mx-2 connect-btton"
-                  data-bs-target="#exampleModal"
-                >
-                  {sliceadd(user)}
-                </button> : <button
-                  type="button"
-                  className="btn mx-2 connect-btton"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                >
-                  Connect Wallet
-                </button>}
+                {user ? (
+                  <button
+                    type="button"
+                    className="btn mx-2 connect-btton"
+                    data-bs-target="#exampleModal"
+                  >
+                    {sliceadd(user)}
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="btn mx-2 connect-btton"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    Connect Wallet
+                  </button>
+                )}
+                {/* <div className="dropdown">
+                  <button
+                    className="btn mx-2 connect-btton dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Dropdown button
+                  </button>
+                  <ul className="dropdown-menu background">
+                    <li className='disconnect'>
+                      Disconnect
+                    </li>
+                  </ul>
+                </div> */}
               </ul>
             </div>
           </div>
@@ -126,8 +176,18 @@ export default function Navbar({WalletC,Metamask,user,account,Dissconnect}) {
               </div>
               <div className="modal-body">
                 <div className="wallet-images">
-                  <img src={meta} alt="" className="wi" onClick={()=>Metamask()}/>
-                  <img src={connect} alt="" className="wi" onClick={()=>WalletC()}/>
+                  <img
+                    src={meta}
+                    alt=""
+                    className="wi"
+                    onClick={() => Metamask()}
+                  />
+                  <img
+                    src={connect}
+                    alt=""
+                    className="wi"
+                    onClick={() => WalletC()}
+                  />
                 </div>
               </div>
               {/* <div className="modal-footer">
@@ -147,5 +207,5 @@ export default function Navbar({WalletC,Metamask,user,account,Dissconnect}) {
         </div>
       </div>
     </div>
-  );
+  )
 }
