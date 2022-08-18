@@ -34,7 +34,7 @@ export default function MyStake({ user }) {
       const min = Math.floor(seconds / 60) % 60;
       const sec = seconds % 60;
       // return days+"D :"+hour+"H :"+min+"M :"+sec+"S"
-      return days+" Days Left to unstake"
+      return days+"D " + hour + "H left to unstake"
     }
     else{
       return "00:00:00:00"
@@ -62,7 +62,7 @@ export default function MyStake({ user }) {
                 <div className="card-body">
                   <div className="srpay-content">
                     <h6 className="srpay-text">Total Staked</h6>
-                    <p className="srpay-count">{mystake} SRPAY</p>
+                    <p className="srpay-count">{Number(mystake).toFixed(0)} SRPAY</p>
                   </div>
                 </div>
               </div>

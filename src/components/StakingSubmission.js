@@ -9,7 +9,7 @@ const time = new Date().getTime();
 
 export default function StakingSubmission({ getTotalStake, user }) {
   const [count, setCount] = useState(0)
-  const [active, setActive] = useState(1)
+  const [active, setActive] = useState(2)
   const [duration, setDuration] = useState(90)
   const [balance, setBalance] = useState(0)
   const [apy, setAPY] = useState(50)
@@ -177,7 +177,7 @@ console.log(duration * 86400)
               <div className="summary-content">
                 <p>Estimated Return</p>
                 <p className="ssc2">:</p>
-                <p className="sc">{duration == 30 ? "1.0292" : duration == 90 ? "1.1875" : duration == 180 ? "1.45" : "2.3"} SRPAY</p>
+                <p className="sc">{duration == 30 ? `${count*1.0292}` : duration == 90 ? `${count * 1.1875}` : duration == 180 ? `${count * 1.45}` : `${count * 2.3}`} SRPAY</p>
               </div>
               <div className="summary-content">
                 <p>Start Date</p>
