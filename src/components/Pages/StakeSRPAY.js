@@ -1,7 +1,23 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import StakingSubmission from "../StakingSubmission";
+import { totalstakedinContract } from "./../Web3/Wallets"
 
-export default function StakeSRPAY() {
+export default function StakeSRPAY({user}) {
+  const [stakeTotal, setStakeTotal] = useState(0)
+
+  useEffect(()=>{
+    const init =async()=>{
+        await getTotalStake();
+    }
+    init();
+  },[user])
+
+  const getTotalStake = async()=>{
+    const data = await totalstakedinContract();
+    // console.log(data)
+    setStakeTotal(data);
+  }
+
   return (
     <div>
       <div className="container">
@@ -12,7 +28,7 @@ export default function StakeSRPAY() {
                 <div className="card-body">
                   <div className="srpay-content">
                     <h6 className="srpay-text">Total Token Staked</h6>
-                    <p className="srpay-count">0 SRPAY</p>
+                    <p className="srpay-count">{stakeTotal} SRPAY</p>
                   </div>
                 </div>
               </div>
@@ -28,7 +44,7 @@ export default function StakeSRPAY() {
               </div>
             </div>
           </div>
-          <StakingSubmission />
+          <StakingSubmission getTotalStake={getTotalStake} user={user}/>
         </div>
       </div>
     </div>

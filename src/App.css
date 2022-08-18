@@ -1,4 +1,4 @@
-@import url("https://use.typekit.net/vvr3yja.css");
+@import url('https://use.typekit.net/vvr3yja.css');
 
 /*  font-family: josefin-sans, sans-serif;
   font-weight: 700;
@@ -77,7 +77,7 @@ ul.nav.nav-pills.nav-fill.area {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #333333;
-  width: 90%;
+  width: 100%;
 }
 a.nav-link.active.tab {
   background: none;
@@ -105,7 +105,7 @@ li.nav-item.tabs {
 /* STAKESPRAY */
 .srpay {
   border: none;
-  width: 90%;
+  width: 100%;
   margin: 40px 0px;
   padding-bottom: 30px;
   border-radius: 5px;
@@ -295,7 +295,7 @@ button.stake-btton {
 .mystake-content {
   border: none;
   border-radius: 5px;
-  width: 95%;
+  width: 96%;
   display: block;
   margin: auto;
   padding: 20px 10px 10px;
@@ -322,6 +322,16 @@ tr.body {
   .statement {
     width: 70%;
   }
+  .mystake-content {
+    border: none;
+    border-radius: 5px;
+    width: 96%;
+    display: block;
+    margin: auto;
+    padding: 20px 0px 10px;
+    text-align: center;
+    background-color: #3898ec;
+  }
 }
 @media screen and (max-width: 1024px) {
   .statement {
@@ -329,6 +339,16 @@ tr.body {
   }
   .nav.nav-pills.pills-area {
     margin-top: 35px;
+  }
+  .mystake-content {
+    border: none;
+    border-radius: 5px;
+    width: 96%;
+    display: block;
+    margin: auto;
+    padding: 20px 0px 10px;
+    text-align: center;
+    background-color: #3898ec;
   }
 }
 
@@ -353,11 +373,11 @@ a.whitepaper:hover {
 img.footerImg {
   width: 60px;
 }
-a.email{
+a.email {
   text-decoration: none;
   color: #333333;
   margin-left: 10px;
-  margin-bottom: 20px
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 912px) {
@@ -388,6 +408,19 @@ a.email{
     color: #fff;
     padding: 10px 10px;
   }
+  .footer-email {
+    text-align: center;
+  }
+  .mystake-content {
+    border: none;
+    border-radius: 5px;
+    width: 96%;
+    display: block;
+    margin: auto;
+    padding: 20px 0px 10px;
+    text-align: center;
+    background-color: #3898ec;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -399,7 +432,7 @@ a.email{
   }
   input.stakedAmount {
     padding: 20px 20px;
-    width: 89%;
+    width: 100%;
   }
   img.stakedImage {
     position: absolute;
@@ -426,5 +459,22 @@ a.email{
     border: none;
     color: #fff;
     padding: 10px 10px;
+  }
+  .mystake-content {
+    border: none;
+    border-radius: 5px;
+    width: 96%;
+    display: block;
+    overflow-x: auto;
+    margin: auto;
+    padding: 20px 0px 10px;
+    text-align: center;
+    background-color: #3898ec;
+  }
+  tr.head {
+    font-weight: 500;
+    font-size: 16px;
+    font-family: josefin-sans, sans-serif;
+    color: #fff;
   }
 }
