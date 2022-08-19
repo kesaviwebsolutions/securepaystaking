@@ -380,6 +380,15 @@ a.email {
   margin-bottom: 20px;
 }
 
+a.icons {
+  text-decoration: none;
+  color: #333333;
+}
+
+a.icons:hover {
+  color: #333333;
+}
+
 @media screen and (max-width: 912px) {
   .statement {
     width: 54%;

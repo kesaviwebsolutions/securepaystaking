@@ -1,6 +1,12 @@
 import React from "react";
-import { FaDiscord, FaTwitter, FaTelegramPlane, FaInstagramSquare, FaMedium } from "react-icons/fa";
-import footerLogo from "../images/logo.ico"
+import {
+  FaDiscord,
+  FaTwitter,
+  FaTelegramPlane,
+  FaInstagramSquare,
+  FaMedium,
+} from "react-icons/fa";
+import footerLogo from "../images/logo.ico";
 
 export default function Footer() {
   return (
@@ -12,22 +18,40 @@ export default function Footer() {
               href="https://secure-pay.io/documents/whitepaper.pdf"
               target="_blank"
               className="whitepaper"
+              rel="noreferrer"
             >
               WHITEPAPER
             </a>
           </div>
           <div className="footer-social-icons">
             <div className="social-icons text-center">
-                <FaDiscord className="mx-3 my-3" size={30}/>
-                <FaTwitter className="mx-3 my-3" size={30}/>
-                <FaTelegramPlane className="mx-3 my-3" size={30}/>
-                <FaInstagramSquare className="mx-3 my-3" size={30}/>
-                <FaMedium className="mx-3 my-3" size={30}/>
+              <a href="https://discord.com/invite/2ZaVSKvv" target="_blank" rel="noreferrer" className="icons">
+                {" "}
+                <FaDiscord className="mx-3 my-3" size={30} />
+              </a>
+              <a href="https://twitter.com/SRPAY_SecurePay" target="_blank" rel="noreferrer" className="icons">
+                {" "}
+                <FaTwitter className="mx-3 my-3" size={30} />
+              </a>
+              <a href="https://t.me/SRPAY_Securepay" target="_blank" rel="noreferrer" className="icons">
+                {" "}
+                <FaTelegramPlane className="mx-3 my-3" size={30} />
+              </a>
+              <a href="https://www.instagram.com/srpay_securepay/" target="_blank" rel="noreferrer" className="icons">
+                {" "}
+                <FaInstagramSquare className="mx-3 my-3" size={30} />
+              </a>
+              <a href="https://medium.com/@srpaycrypto" target="_blank" rel="noreferrer" className="icons">
+                {" "}
+                <FaMedium className="mx-3 my-3" size={30} />
+              </a>
             </div>
           </div>
           <div className="footer-email">
-          <img src={footerLogo} alt="" className="footerImg"/>
-            <a href="mailto:hello@jimmymakesthings.com" className="email">hello@securepay.io</a>
+            <img src={footerLogo} alt="" className="footerImg" />
+            <a href="mailto:hello@jimmymakesthings.com" className="email">
+              hello@securepay.io
+            </a>
           </div>
         </div>
       </div>
