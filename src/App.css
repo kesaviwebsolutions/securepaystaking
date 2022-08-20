@@ -201,7 +201,7 @@ img.stakedImage {
 }
 input.stakedAmount {
   padding: 20px 20px;
-  width: 100%;
+  width: 75%;
 }
 .statement {
   width: 73%;
@@ -332,6 +332,10 @@ tr.body {
     text-align: center;
     background-color: #3898ec;
   }
+  input.stakedAmount {
+    padding: 20px 20px;
+    width: 73%;
+  }
 }
 @media screen and (max-width: 1024px) {
   .statement {
@@ -388,21 +392,23 @@ a.icons {
 a.icons:hover {
   color: #333333;
 }
-
-@media screen and (max-width: 1024px) {
-  .navbar > .container,
-  .navbar > .container-fluid,
-  .navbar > .container-sm,
-  .navbar > .container-md,
-  .navbar > .container-lg,
-  .navbar > .container-xl,
-  .navbar > .container-xxl {
-    display: flex;
-    flex-wrap: inherit;
-    align-items: baseline !important;
-    justify-content: space-between;
-  }
+input.stakedAmount {
+  padding: 20px 20px;
+  width: 58%;
 }
+.navbar > .container,
+.navbar > .container-fluid,
+.navbar > .container-sm,
+.navbar > .container-md,
+.navbar > .container-lg,
+.navbar > .container-xl,
+.navbar > .container-xxl {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
 
 @media screen and (max-width: 912px) {
   .statement {
@@ -410,7 +416,7 @@ a.icons:hover {
   }
   input.stakedAmount {
     padding: 20px 20px;
-    width: 95%;
+    width: 52%;
   }
   h4.ss-heading {
     color: #333333;
@@ -445,7 +451,7 @@ a.icons:hover {
     text-align: center;
     background-color: #3898ec;
   }
-  ul.nav.nav-pills.pills-area.mx-auto.mb-2.mb-lg-0 {
+  ul.nav.nav-pills.pills-area.ms-auto.mb-2.mb-lg-0 {
     display: grid;
   }
 }
