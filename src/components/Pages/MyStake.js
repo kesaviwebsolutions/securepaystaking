@@ -13,6 +13,7 @@ export default function MyStake({ user }) {
     const init=async()=>{
       const mysta = await StakeBalace();
       setMystake(mysta)
+      console.log(mysta)
       const rewards = await totakRewardEarned();
       setRewards(rewards)
       const event = await getDetails();
@@ -34,21 +35,26 @@ export default function MyStake({ user }) {
       const min = Math.floor(seconds / 60) % 60;
       const sec = seconds % 60;
       // return days+"D :"+hour+"H :"+min+"M :"+sec+"S"
-      return days+"D " + hour + "H left to unstake"
+      return days+"D " + hour + "H"
     }
     else{
-      return "00:00:00:00"
+      return "UNSTAKE"
     }
   } 
 
   const unStakeAmount = async (id, end) => {
-    if(new Date().getTime() > Number(end)){
+    console.log(Number(new Date().getTime()/1000).toFixed(0), Number(end))
+    if(new Date().getTime()/1000 < Number(end)){
       warning("Can not unstake before end time")
       return true;
     }
     const data = await unstake(id)
     if (data.status) {
       notify('Staked Successfully')
+      const rewards = await totakRewardEarned();
+      setRewards(rewards)
+      const event = await getDetails();
+      setEvents(event)
     }
   }
 
@@ -62,7 +68,7 @@ export default function MyStake({ user }) {
                 <div className="card-body">
                   <div className="srpay-content">
                     <h6 className="srpay-text">Total Staked</h6>
-                    <p className="srpay-count">{Number(mystake).toFixed(0)} SRPAY</p>
+                    <p className="srpay-count">{isNaN(mystake) ? "0" :  Number(mystake).toFixed(0)} SRPAY</p>
                   </div>
                 </div>
               </div>
@@ -72,7 +78,7 @@ export default function MyStake({ user }) {
                 <div className="card-body content">
                   <div className="srpay-content">
                     <h6 className="srpay-text">Total Earning</h6>
-                    <p className="srpay-count">{reward} SRPAY</p>
+                    <p className="srpay-count">{isNaN(reward) ? "0" : Number(reward).toFixed(5)} SRPAY</p>
                   </div>
                 </div>
               </div>
@@ -97,10 +103,10 @@ export default function MyStake({ user }) {
                   <td>{new Date(Number(item.starttime)*1000).toLocaleDateString()}</td>
                   <td>{item.amount/10**18}</td>
                   <td>{new Date(Number(item.endtime)*1000).toLocaleDateString()}</td>
-                  <td onClick={()=>unStakeAmount(events.indexOf(item)+1,item.endtime)}>{upcommingDate(item.endtime)}</td>
+                 {!item.claimed ? <td className='' onClick={()=>unStakeAmount(events.indexOf(item)+1,item.endtime)}>{upcommingDate(item.endtime)}</td> :
+                  <td>UNSTAKED</td>}
                 </tr>
                })}
-             
               </tbody>
             </table>
           </div>

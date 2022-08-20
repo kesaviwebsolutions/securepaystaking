@@ -1,4 +1,4 @@
-export const StakingAddress = "0xb09B544a97cfF9ED2D9955Ae13760eFD45De376B";
+export const StakingAddress = "0x2b17B902DD107BF562c5cbeEA35d78BDE8547Aa4";
 export const StakingABI = [
   {
     inputs: [
@@ -514,7 +514,7 @@ export const StakingABI = [
   },
 ];
 
-export const TokenAddress = "0xC801a04cf093Da9b6670feaCECCAC7235A3Ec8B9";
+export const TokenAddress = "0x3C691f677408b100c4045e5b77ABA7F207389B14";
 export const TokenABI = [
   {
     inputs: [

@@ -182,3 +182,13 @@ export const unstake = async(id)=>{
     console.log(error)
   }
 }
+
+export const pendingrewards = async()=>{
+  try {
+    const contract = new web3.eth.Contract(StakingABI, StakingAddress);
+    const data = await contract.methods.withdraw(await getUserAddress()).call();
+    return data;
+  } catch (error) {
+    console.log(error)
+  }
+}
