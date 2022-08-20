@@ -1,4 +1,4 @@
-@import url('https://use.typekit.net/vvr3yja.css');
+@import url("https://use.typekit.net/vvr3yja.css");
 
 /*  font-family: josefin-sans, sans-serif;
   font-weight: 700;
@@ -389,6 +389,21 @@ a.icons:hover {
   color: #333333;
 }
 
+@media screen and (max-width: 1024px) {
+  .navbar > .container,
+  .navbar > .container-fluid,
+  .navbar > .container-sm,
+  .navbar > .container-md,
+  .navbar > .container-lg,
+  .navbar > .container-xl,
+  .navbar > .container-xxl {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: baseline !important;
+    justify-content: space-between;
+  }
+}
+
 @media screen and (max-width: 912px) {
   .statement {
     width: 54%;
@@ -429,6 +444,9 @@ a.icons:hover {
     padding: 20px 0px 10px;
     text-align: center;
     background-color: #3898ec;
+  }
+  ul.nav.nav-pills.pills-area.mx-auto.mb-2.mb-lg-0 {
+    display: grid;
   }
 }
 
