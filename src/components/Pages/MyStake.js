@@ -1,6 +1,8 @@
 import React,{useState, useEffect} from 'react'
-import {StakeBalace, totakRewardEarned, unstake, getDetails} from "./../Web3/Wallets"
+import {StakeBalace, totakRewardEarned, unstake, getDetails, emergencyaction} from "./../Web3/Wallets"
 import toast, { Toaster } from 'react-hot-toast'
+import ReactTooltip from 'react-tooltip';
+import {FaQuestionCircle} from 'react-icons/fa'
 
 const notify = (msg) => toast.success(msg)
 const warning = (msg) => toast.error(msg)
@@ -41,6 +43,13 @@ export default function MyStake({ user }) {
       return "UNSTAKE"
     }
   } 
+
+  const EmergencyUnstake =async(id)=>{
+    const data = await emergencyaction(id);
+    if(data.status){
+      notify('Unstake Successfully')
+    }
+  }
 
   const unStakeAmount = async (id, end) => {
     console.log(Number(new Date().getTime()/1000).toFixed(0), Number(end))
@@ -93,6 +102,7 @@ export default function MyStake({ user }) {
                   <th scope="col">Token Amount</th>
                   <th scope="col">Staking End</th>
                   <th scope="col">Action</th>
+                  <th scope="col">Emergency</th>
                 </tr>
               </thead>
               <tbody>
@@ -105,6 +115,14 @@ export default function MyStake({ user }) {
                   <td>{new Date(Number(item.endtime)*1000).toLocaleDateString()}</td>
                  {!item.claimed ? <td className='' onClick={()=>unStakeAmount(events.indexOf(item)+1,item.endtime)}>{upcommingDate(item.endtime)}</td> :
                   <td>UNSTAKED</td>}
+                  <td><p className='emergency' data-tip="hello world" onClick={()=>EmergencyUnstake(events.indexOf(item)+1)}>Emergency Withdraw &nbsp;&nbsp;<span
+                    type="button"
+                    className="fs-5 ml-1"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="10% fee will be charged">
+                <FaQuestionCircle size={20}/>
+              </span></p></td>
                 </tr>
                })}
               </tbody>
@@ -113,6 +131,7 @@ export default function MyStake({ user }) {
         </div>
       </div>
       <Toaster/>
+      <ReactTooltip />
     </div>
   )
 }

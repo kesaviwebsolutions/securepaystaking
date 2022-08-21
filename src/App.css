@@ -511,3 +511,11 @@ input.stakedAmount {
     color: #fff;
   }
 }
+
+.emergency{
+  padding: 5px 5px;
+  width: fit-content;
+  margin: auto;
+  background-color: #960000;
+  border-radius: 5px;
+}
