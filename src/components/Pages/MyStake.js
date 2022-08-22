@@ -44,7 +44,10 @@ export default function MyStake({ user }) {
     }
   } 
 
-  const EmergencyUnstake =async(id)=>{
+  const EmergencyUnstake =async(id,tab)=>{
+    if(tab){
+      return true
+    }
     const data = await emergencyaction(id);
     if(data.status){
       notify('Unstake Successfully')
@@ -115,14 +118,14 @@ export default function MyStake({ user }) {
                   <td>{new Date(Number(item.endtime)*1000).toLocaleDateString()}</td>
                  {!item.claimed ? <td className='' onClick={()=>unStakeAmount(item.id,item.endtime)}>{upcommingDate(item.endtime)}</td> :
                   <td>UNSTAKED</td>}
-                  <td><p className='emergency' data-tip="hello world" onClick={()=>EmergencyUnstake(item.id)}>Emergency Withdraw &nbsp;&nbsp;<span
+                  {!item.claimed ? <td><p className='emergency' data-tip="hello world"  onClick={()=>EmergencyUnstake(item.id)}>Emergency Withdraw &nbsp;&nbsp;<span
                     type="button"
                     className="fs-5 ml-1"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="10% fee will be charged">
                 <FaQuestionCircle size={20}/>
-              </span></p></td>
+              </span></p></td> : <td><p>NOT AVIALABLE</p></td>}
                 </tr>
                })}
               </tbody>
