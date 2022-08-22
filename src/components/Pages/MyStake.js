@@ -118,16 +118,16 @@ export default function MyStake({ user }) {
                   <td>{new Date(Number(item.starttime)*1000).toLocaleDateString()}</td>
                   <td>{item.amount/10**18}</td>
                   <td>{new Date(Number(item.endtime)*1000).toLocaleDateString()}</td>
-                 {balance < item.amount ? <td>NOT AVIALABLE</td> : !item.claimed ? <td className='' onClick={()=>unStakeAmount(item.id,item.endtime)}>{upcommingDate(item.endtime)}</td> :
+                 {balance < item.amount ? <td>NOT AVAILABLE</td> : !item.claimed ? <td className='' onClick={()=>unStakeAmount(item.id,item.endtime)}>{upcommingDate(item.endtime)}</td> :
                   <td>UNSTAKED</td>}
-                  {balance < item.amount ? <td>NOT AVIALABLE</td> : !item.claimed ? <td><p className='emergency' data-tip="hello world"  onClick={()=>EmergencyUnstake(item.id)}>Emergency Withdraw &nbsp;&nbsp;<span
+                  {balance < item.amount ? <td>NOT AVAILABLE</td> : !item.claimed ? <td><p className='emergency' data-tip="hello world"  onClick={()=>EmergencyUnstake(item.id)}>Emergency Withdraw &nbsp;&nbsp;<span
                     type="button"
                     className="fs-5 ml-1"
                     data-bs-toggle="tooltip"
                     data-bs-placement="top"
                     title="10% fee will be charged">
                 <FaQuestionCircle size={20}/>
-              </span></p></td> : <td><p>NOT AVIALABLE</p></td>}
+              </span></p></td> : <td><p>NOT AVAILABLE</p></td>}
                 </tr>
                })}
               </tbody>
