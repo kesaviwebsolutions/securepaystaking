@@ -110,7 +110,7 @@ export default function MyStake({ user }) {
                   <th scope="col">Emergency</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className='text-light'>
               
                {events && events.map((item)=>{
                return <tr className='body'>
