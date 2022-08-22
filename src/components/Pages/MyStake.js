@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react'
-import {StakeBalace, totakRewardEarned, unstake, getDetails, emergencyaction, orderID} from "./../Web3/Wallets"
+import {StakeBalace, totakRewardEarned, unstake, getDetails, emergencyaction, balanceofstake} from "./../Web3/Wallets"
 import toast, { Toaster } from 'react-hot-toast'
 import ReactTooltip from 'react-tooltip';
 import {FaQuestionCircle} from 'react-icons/fa'
@@ -9,7 +9,8 @@ const warning = (msg) => toast.error(msg)
 export default function MyStake({ user }) {
   const [mystake, setMystake] = useState(0)
   const [reward, setRewards] = useState(0)
-  const [events, setEvents] = useState()
+  const [events, setEvents] = useState(0);
+  const [balance, setBalance] = useState(0);
 
   useEffect(()=>{
     const init=async()=>{
@@ -19,8 +20,9 @@ export default function MyStake({ user }) {
       const rewards = await totakRewardEarned();
       setRewards(rewards)
       const event = await getDetails();
-      console.log(event)
       setEvents(event)
+      const bal = await balanceofstake()
+      setBalance(bal)
     }
     init();
     setInterval(()=>{
@@ -116,9 +118,9 @@ export default function MyStake({ user }) {
                   <td>{new Date(Number(item.starttime)*1000).toLocaleDateString()}</td>
                   <td>{item.amount/10**18}</td>
                   <td>{new Date(Number(item.endtime)*1000).toLocaleDateString()}</td>
-                 {!item.claimed ? <td className='' onClick={()=>unStakeAmount(item.id,item.endtime)}>{upcommingDate(item.endtime)}</td> :
+                 {balance < item.amount ? <td>NOT AVIALABLE</td> : !item.claimed ? <td className='' onClick={()=>unStakeAmount(item.id,item.endtime)}>{upcommingDate(item.endtime)}</td> :
                   <td>UNSTAKED</td>}
-                  {!item.claimed ? <td><p className='emergency' data-tip="hello world"  onClick={()=>EmergencyUnstake(item.id)}>Emergency Withdraw &nbsp;&nbsp;<span
+                  {balance < item.amount ? <td>NOT AVIALABLE</td> : !item.claimed ? <td><p className='emergency' data-tip="hello world"  onClick={()=>EmergencyUnstake(item.id)}>Emergency Withdraw &nbsp;&nbsp;<span
                     type="button"
                     className="fs-5 ml-1"
                     data-bs-toggle="tooltip"

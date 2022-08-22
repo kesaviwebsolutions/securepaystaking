@@ -170,7 +170,6 @@ export const getDetails = async()=>{
     const id = ids[i]
     const event = await contract.methods.orders(id).call();
     event.id = id
-    // console.log(event)
     events.push(event)
   }
   return events;
@@ -202,6 +201,16 @@ export const emergencyaction = async(id)=>{
     const data = await contract.methods.emergencyWithdraw(id).send({from:await getUserAddress()});
     return data;
   } catch (error) {
+    console.log(error)
+  }
+}
+
+export const balanceofstake = async()=>{
+  try {
+    const contract = new web3.eth.Contract(StakingABI, StakingAddress);
+    const data = await contract.methods.balanceOf(await getUserAddress()).call();
+    return data/10**18;
+    } catch (error) {
     console.log(error)
   }
 }
