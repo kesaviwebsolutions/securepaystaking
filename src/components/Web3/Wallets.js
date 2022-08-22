@@ -165,9 +165,11 @@ export const getDetails = async()=>{
   const events = []
   const contract = new web3.eth.Contract(StakingABI, StakingAddress);
   const ids = await orderID();
+  console.log("ID array",ids)
   for(let i = 0; i < ids.length; i++){
-    const event = await contract.methods.orders(i+1).call();
-    console.log(event)
+    const id = ids[i]
+    const event = await contract.methods.orders(id).call();
+    event.id = id
     events.push(event)
   }
   return events;
@@ -179,6 +181,36 @@ export const unstake = async(id)=>{
     const data = await contract.methods.withdraw(id).send({from:await getUserAddress()});
     return data;
   } catch (error) {
+    console.log(error)
+  }
+}
+
+export const pendingrewards = async()=>{
+  try {
+    const contract = new web3.eth.Contract(StakingABI, StakingAddress);
+    const data = await contract.methods.withdraw(await getUserAddress()).call();
+    return data;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const emergencyaction = async(id)=>{
+  try {
+    const contract = new web3.eth.Contract(StakingABI, StakingAddress);
+    const data = await contract.methods.emergencyWithdraw(id).send({from:await getUserAddress()});
+    return data;
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const balanceofstake = async()=>{
+  try {
+    const contract = new web3.eth.Contract(StakingABI, StakingAddress);
+    const data = await contract.methods.balanceOf(await getUserAddress()).call();
+    return data/10**18;
+    } catch (error) {
     console.log(error)
   }
 }

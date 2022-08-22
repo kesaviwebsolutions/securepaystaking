@@ -28,7 +28,7 @@ export default function StakeSRPAY({user}) {
                 <div className="card-body">
                   <div className="srpay-content">
                     <h6 className="srpay-text">Total Token Staked</h6>
-                    <p className="srpay-count">{stakeTotal} SRPAY</p>
+                    <p className="srpay-count">{isNaN(stakeTotal) ? "0" : Number(stakeTotal).toFixed(0)} SRPAY</p>
                   </div>
                 </div>
               </div>

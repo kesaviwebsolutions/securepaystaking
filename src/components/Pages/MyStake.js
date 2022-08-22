@@ -1,23 +1,28 @@
 import React,{useState, useEffect} from 'react'
-import {StakeBalace, totakRewardEarned, unstake, getDetails} from "./../Web3/Wallets"
+import {StakeBalace, totakRewardEarned, unstake, getDetails, emergencyaction, balanceofstake} from "./../Web3/Wallets"
 import toast, { Toaster } from 'react-hot-toast'
+import ReactTooltip from 'react-tooltip';
+import {FaQuestionCircle} from 'react-icons/fa'
 
 const notify = (msg) => toast.success(msg)
 const warning = (msg) => toast.error(msg)
 export default function MyStake({ user }) {
   const [mystake, setMystake] = useState(0)
   const [reward, setRewards] = useState(0)
-  const [events, setEvents] = useState()
+  const [events, setEvents] = useState(0);
+  const [balance, setBalance] = useState(0);
 
   useEffect(()=>{
     const init=async()=>{
       const mysta = await StakeBalace();
       setMystake(mysta)
+      console.log(mysta)
       const rewards = await totakRewardEarned();
       setRewards(rewards)
       const event = await getDetails();
-      console.log(event);
       setEvents(event)
+      const bal = await balanceofstake()
+      setBalance(bal)
     }
     init();
     setInterval(()=>{
@@ -34,21 +39,36 @@ export default function MyStake({ user }) {
       const min = Math.floor(seconds / 60) % 60;
       const sec = seconds % 60;
       // return days+"D :"+hour+"H :"+min+"M :"+sec+"S"
-      return days+" Days Left to unstake"
+      return days+"D " + hour + "H"
     }
     else{
-      return "00:00:00:00"
+      return "UNSTAKE"
     }
   } 
 
+  const EmergencyUnstake =async(id,tab)=>{
+    if(tab){
+      return true
+    }
+    const data = await emergencyaction(id);
+    if(data.status){
+      notify('Unstake Successfully')
+    }
+  }
+
   const unStakeAmount = async (id, end) => {
-    if(new Date().getTime() > Number(end)){
+    console.log(Number(new Date().getTime()/1000).toFixed(0), Number(end))
+    if(new Date().getTime()/1000 < Number(end)){
       warning("Can not unstake before end time")
       return true;
     }
     const data = await unstake(id)
     if (data.status) {
       notify('Staked Successfully')
+      const rewards = await totakRewardEarned();
+      setRewards(rewards)
+      const event = await getDetails();
+      setEvents(event)
     }
   }
 
@@ -62,7 +82,7 @@ export default function MyStake({ user }) {
                 <div className="card-body">
                   <div className="srpay-content">
                     <h6 className="srpay-text">Total Staked</h6>
-                    <p className="srpay-count">{mystake} SRPAY</p>
+                    <p className="srpay-count">{isNaN(mystake) ? "0" :  Number(mystake).toFixed(0)} SRPAY</p>
                   </div>
                 </div>
               </div>
@@ -72,7 +92,7 @@ export default function MyStake({ user }) {
                 <div className="card-body content">
                   <div className="srpay-content">
                     <h6 className="srpay-text">Total Earning</h6>
-                    <p className="srpay-count">{reward} SRPAY</p>
+                    <p className="srpay-count">{isNaN(reward) ? "0" : Number(reward).toFixed(5)} SRPAY</p>
                   </div>
                 </div>
               </div>
@@ -82,31 +102,41 @@ export default function MyStake({ user }) {
             <table class="table">
               <thead>
                 <tr className="head">
-                  <th scope="col">Serial</th>
+                  <th scope="col">Order Id</th>
                   <th scope="col">Staking Date</th>
                   <th scope="col">Token Amount</th>
                   <th scope="col">Staking End</th>
                   <th scope="col">Action</th>
+                  <th scope="col">Emergency</th>
                 </tr>
               </thead>
               <tbody>
               
                {events && events.map((item)=>{
                return <tr className='body'>
-                  <th scope="row">{events.indexOf(item)+1}</th>
+                  <th scope="row">{item.id}</th>
                   <td>{new Date(Number(item.starttime)*1000).toLocaleDateString()}</td>
                   <td>{item.amount/10**18}</td>
                   <td>{new Date(Number(item.endtime)*1000).toLocaleDateString()}</td>
-                  <td onClick={()=>unStakeAmount(events.indexOf(item)+1,item.endtime)}>{upcommingDate(item.endtime)}</td>
+                 {balance < item.amount ? <td>NOT AVAILABLE</td> : !item.claimed ? <td className='' onClick={()=>unStakeAmount(item.id,item.endtime)}>{upcommingDate(item.endtime)}</td> :
+                  <td>UNSTAKED</td>}
+                  {balance < item.amount ? <td>NOT AVAILABLE</td> : !item.claimed ? <td><p className='emergency' data-tip="hello world"  onClick={()=>EmergencyUnstake(item.id)}>Emergency Withdraw &nbsp;&nbsp;<span
+                    type="button"
+                    className="fs-5 ml-1"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    title="10% fee will be charged">
+                <FaQuestionCircle size={20}/>
+              </span></p></td> : <td><p>NOT AVAILABLE</p></td>}
                 </tr>
                })}
-             
               </tbody>
             </table>
           </div>
         </div>
       </div>
       <Toaster/>
+      <ReactTooltip />
     </div>
   )
 }
