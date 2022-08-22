@@ -214,3 +214,23 @@ export const balanceofstake = async()=>{
     console.log(error)
   }
 }
+
+export const tokenpending =async()=>{
+  try {
+    const contract = new web3.eth.Contract(StakingABI, StakingAddress);
+    const data = await contract.methods.totalRewardPending().call();
+    return data/10**18;
+    } catch (error) {
+    console.log(error)
+  }
+}
+
+export const tokenDistribute = async()=>{
+  try {
+    const contract = new web3.eth.Contract(StakingABI, StakingAddress);
+    const data = await contract.methods.totalRewardsDistribution().call();
+    return data/10**18;
+    } catch (error) {
+    console.log(error)
+  }
+}
