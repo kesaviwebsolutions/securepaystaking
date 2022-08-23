@@ -118,9 +118,9 @@ export default function MyStake({ user }) {
                   <td>{new Date(Number(item.starttime)*1000).toLocaleDateString()}</td>
                   <td>{item.amount/10**18}</td>
                   <td>{new Date(Number(item.endtime)*1000).toLocaleDateString()}</td>
-                 {balance < item.amount ? <td>NOT AVAILABLE</td> : !item.claimed ? <td className='' onClick={()=>unStakeAmount(item.id,item.endtime)}>{upcommingDate(item.endtime)}</td> :
+                 {!item.claimed ? <td className='' onClick={()=>unStakeAmount(item.id,item.endtime)}>{upcommingDate(item.endtime)}</td> :
                   <td>UNSTAKED</td>}
-                  {balance < item.amount ? <td>NOT AVAILABLE</td> : !item.claimed ? <td><p className='emergency' data-tip="hello world"  onClick={()=>EmergencyUnstake(item.id)}>Emergency Withdraw &nbsp;&nbsp;<span
+                  {!item.claimed ? <td><p className='emergency' data-tip="hello world"  onClick={()=>EmergencyUnstake(item.id)}>Emergency Withdraw &nbsp;&nbsp;<span
                     type="button"
                     className="fs-5 ml-1"
                     data-bs-toggle="tooltip"
